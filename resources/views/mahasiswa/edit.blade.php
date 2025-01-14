@@ -1,5 +1,3 @@
-
-<!-- START FORM -->
 @if ($errors->any())
 <div class="pt-3">
     <div class="alert alert-danger">
@@ -39,6 +37,6 @@
         </div>
      </div>
      </form>
-<!-- AKHIR FORM -->
+
 
     

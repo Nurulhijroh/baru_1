@@ -27,9 +27,6 @@ class MahasiswaController extends Controller
         return view('mahasiswa.index')->with('data',$data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('mahasiswa.create');
@@ -65,12 +62,10 @@ class MahasiswaController extends Controller
 
     }
 
-    /**
-     * Display the specified resource.
-     */
+
     public function show(string $id)
     {
-        //
+        
     }
 
 

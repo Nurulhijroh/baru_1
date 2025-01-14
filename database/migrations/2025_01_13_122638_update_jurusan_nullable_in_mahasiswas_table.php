@@ -8,14 +8,14 @@ class UpdateJurusanNullableInMahasiswasTable extends Migration
     public function up()
     {
         Schema::table('mahasiswas', function (Blueprint $table) {
-            $table->string('jurusan')->nullable()->change();  // Membuat 'jurusan' nullable
+            $table->string('jurusan')->nullable()->change();  
         });
     }
 
     public function down()
     {
         Schema::table('mahasiswas', function (Blueprint $table) {
-            $table->string('jurusan')->nullable(false)->change();  // Mengubah kembali menjadi NOT NULL
+            $table->string('jurusan')->nullable(false)->change(); 
         });
     }
 }

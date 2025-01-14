@@ -15,17 +15,13 @@
             </div>    
         </div>   
         @endif
-       <!-- START DATA -->
         <div class="my-3 p-3 bg-body rounded shadow-sm">
-                <!-- FORM PENCARIAN -->
                 <div class="pb-3">
                   <form class="d-flex" action="{{url('mahasiswa')}}" method="get">
                       <input class="form-control me-1" type="search" name="katakunci" value="{{ Request::get('katakunci') }}" placeholder="Masukkan kata kunci" aria-label="Search">
                       <button class="btn btn-secondary" type="submit">Cari</button>
                   </form>
                 </div>
-                
-                <!-- TOMBOL TAMBAH DATA -->
                 <div class="pb-3">
                   <a href='' class="btn btn-primary">+ Tambah Data</a>
                 </div>
@@ -51,7 +47,7 @@
                             <td>{{$item->jurusan}}</td>
                             <td>
                                 <a href='{{url('mahasiswa/'. $item->nim . '/edit')}}' class="btn btn-warning btn-sm">Edit</a>
-                                <form onsubmit="return confirm('Yakin akan menghapus data')" class="d-inline" action="{{url('mahasiswa/'.$item->nim. )}}"
+                                <form onsubmit="return confirm('Yakin akan menghapus data')" class="d-inline" action="{{url('mahasiswa/'.$item->nim)}}"
                                   method="post"
                                   @csrf
                                   @method('DELETE')>
@@ -67,7 +63,6 @@
                 {{$data->withQueryString()->links()}}
                
           </div>
-          <!-- AKHIR DATA -->
 </main>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
   </body>
