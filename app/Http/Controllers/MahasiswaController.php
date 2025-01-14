@@ -25,9 +25,7 @@ class MahasiswaController extends Controller
         return view('mahasiswa.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+
     public function store(Request $request)
     {
         session::flash('nim',$request->nim);
@@ -65,18 +63,14 @@ class MahasiswaController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit( $id)
     {
         $data = mahasiswa::where('nim', $id)->first();
         return view('mahasiswa.edit')->with('data', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
+
     public function update(Request $request, string $id)
     {
          $request->validate([
@@ -101,11 +95,9 @@ class MahasiswaController extends Controller
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        mahasiswa::where('nim', $id)->delete();
+        return redirect()->to('mahasiswa')->with('succes', 'Berhasil melakukan delete data');
     }
 }
