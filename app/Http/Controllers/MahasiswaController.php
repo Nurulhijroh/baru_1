@@ -11,9 +11,19 @@ class MahasiswaController extends Controller
      * Display a listing of the resource.
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(request $request)
     {
-        $data = mahasiswa::orderBy('nim','desc')->paginate(3);
+        $katakunci = $request->katakunci;
+        $jumlahbaris = 4;
+        if(strlen($katakunci)){
+            $data = mahasiswa::where('nim', 'like', "%$katakunci")
+            ->orwhere('nama', 'like', "%$katakunci")
+            ->orwhere('jurusan', 'like', "%$katakunci")
+            ->paginate($jumlahbaris);
+        }else{
+             $data = mahasiswa::orderBy('nim','desc')->paginate($jumlahbaris);
+        }
+
         return view('mahasiswa.index')->with('data',$data);
     }
 
